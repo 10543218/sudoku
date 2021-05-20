@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+		<title>首頁</title>
+		
+
+		
+	</head>
+	<body>
+			<div style="font-size: 62px;text-align:center">數獨產生器</div>
+			<div style="font-size: 62px;text-align:center">作者:小李</div>
+			<br><br>
+			<div id="ques" style="font-size: 45px;"> </div>
+	</body>
+	<script type="text/javascript">
+			
+			var q = new Array(4);
+			var c = 0;
+			
+			for(var i = 0; i < 4; i++){
+				c = getRandomInt(4)+1;
+				while(c == q[0] || c == q[1] || c == q[2]){
+					c = getRandomInt(4)+1;
+				}
+				q[i] = c;
+			}
+			
+			q[14] = q[9] = q[7] = q[0];
+			q[15] = q[8] = q[6] = q[1];
+			q[13] = q[11] = q[4] = q[2];
+			q[12] = q[10] = q[5] = q[3];
+			
+
+			// 0 1 2 3
+			// 4 5 6 7
+			// 8 9 10 11
+			// 12 13 14 15
+			
+			// A B C D
+			// C D B A
+			// B A D C
+            // D C A B			
+			
+			
+			for(var i = 0; i < 4; i++){
+				document.write("<div style='font-size: 45px;text-align:center'>"+
+				q[4*i]+" "+
+				q[4*i+1]+" "+
+				q[4*i+2]+"  "+
+				q[4*i+3]+
+				"</div>"+"<br>");
+			}
+
+
+			function getRandomInt(max) {
+				return Math.floor(Math.random() * max);
+			}
+			
+		</script>
+</html>
